@@ -12,7 +12,6 @@ The **Automatic WhatsApp Message Distributor** is a Python-based tool that autom
 ## Technologies Used
 - **Python**: For scripting and automation.
 - **pywhatkit**: A Python library that simplifies the automation of WhatsApp messaging.
-- **Twilio (optional)**: For integrating additional messaging features (if applicable).
 
 ## Installation
 To set up and run the project, follow these steps:

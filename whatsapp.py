@@ -2,20 +2,20 @@ import pywhatkit as kit
 import pandas as pd
 import time
 
-file_path = "phone.xlsx"
-data = pd.read_excel(file_path)
+file = "phone.xlsx"
+data = pd.read_excel(file)
 
 for index, row in data.iterrows():
-    phone_number = str(row['Phone'])
-    if not phone_number.startswith("+91"):
-        phone_number = "+91" + phone_number
+    phone = str(row['Phone'])
+    if not phone.startswith("+91"):
+        phone = "+91" + phone
 
     message = row['Message']
 
    
-    current_time = time.localtime()
-    current_hour = current_time.tm_hour
-    current_minute = current_time.tm_min
+    curtime = time.localtime()
+    curhour = curtime.tm_hour
+    curminute = curtime.tm_min
 
 
     hour = 9
@@ -26,13 +26,13 @@ for index, row in data.iterrows():
         minute -= 60
         hour += 1
 
-    print(f"Message will be sent at: {hour}:{minute}")
+    print(f"Message timing: {hour}:{minute}")
 
     try:
        
-        kit.sendwhatmsg(phone_number, message, hour, minute, 18)
-        print(f"Message successfully scheduled for {phone_number} at {hour}:{minute}")
+        kit.sendwhatmsg(phone, message, hour, minute, 18)
+        print(f"message sented successfully  {phone_number} at {hour}:{minute}")
 
         time.sleep(15)  
     except Exception as e:
-        print(f"Failed to send message to {phone_number}: {e}")
+        print(f"failed this number {phone}: {e}")
